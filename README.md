@@ -54,3 +54,31 @@ The simulator provides two datasets. The difference between them are:
 px, py, vx, vy output coordinates must have an RMSE <= [.11, .11, 0.52, 0.52] when using the file: "obj_pose-laser-radar-synthetic-input.txt".
 
 
+## Following the Correct Algorithm
+
+Udacity instructions :
+
+Your Sensor Fusion algorithm follows the general processing flow as taught in the preceding lessons.
+The Kalman filter implementation can be found src/kalman_filter.cpp and it is used to predict at src/FusionEKF.cpp line 147 and to update line 159 to 169.
+
+Your Kalman Filter algorithm handles the first measurements appropriately.
+The first measurement is handled at src/FusionEKF.cpp from line 61 to line 107.
+
+Your Kalman Filter algorithm first predicts then updates.
+The predict operation could be found at src/FusionEKF.cpp line 147 and the update operation from line 159 to 169 of the same file.
+
+Your Kalman Filter can handle radar and lidar measurements.
+Different type of measurements are handled in two places in src/FusionEKF.cpp:
+
+For the first measurement from line 61 to line 107.
+For the update part from line 159 to 169.
+Code Efficiency
+Your algorithm should avoid unnecessary calculations.
+An example of this calculation optimization is when the Q matrix is calculated src/FusionEKF.cpp line 135 to line 144.
+
+## References
+
+- [ Extended Kalman Filter - Equations and References for this example](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/58b461d5_sensor-fusion-ekf-reference/sensor-fusion-ekf-reference.pdf)
+
+ - [ Extended Kalman Filter - How does it work ?](http://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/)
+
